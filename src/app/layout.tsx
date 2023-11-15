@@ -2,8 +2,7 @@ import "./globals.css";
 import { Poppins } from "next/font/google";
 
 import clsx from "clsx";
-import Navbar from "../components/Navbar";
-import Footer from "@/components/Footer";
+import Layout from "@/components/Layout";
 
 const inter = Poppins({
   subsets: ["latin"],
@@ -25,12 +24,10 @@ export default function RootLayout({
       <body
         className={clsx(
           inter.className,
-          "bg-gradient-to-b from-slate-950 to-indigo-900"
+          "bg-gradient-to-b from-slate-950 to-indigo-900 flex flex-col"
         )}
       >
-        <Navbar />
-        {children}
-        <Footer />
+        <Layout>{children}</Layout>
       </body>
     </html>
   );

@@ -94,7 +94,7 @@ const ServiceCards = () => {
             title={service.title}
             description={service.description}
             href={service.href}
-            delay={index * 0.1}
+            delay={index * 0.05}
           />
         ))}
       </motion.div>

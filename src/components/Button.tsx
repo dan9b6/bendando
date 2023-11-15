@@ -1,4 +1,5 @@
 import clsx from "clsx";
+import Link from "next/link";
 
 type ButtonProps = {
   as?: React.ElementType;
@@ -8,6 +9,7 @@ type ButtonProps = {
   hoverBg?: string;
   href?: string;
   children: React.ReactNode;
+  newTab?: boolean;
 };
 
 export default function Button({
@@ -20,9 +22,25 @@ export default function Button({
   className,
   ...restProps
 }: ButtonProps) {
+  if (Comp === "a") {
+    return (
+      <Link
+        className={clsx(
+          bg,
+          color,
+          hoverBg,
+          className,
+          `transition ease-in-out rounded-md px-3.5 py-2.5 text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600`
+        )}
+        href={`${href}`}
+        {...restProps}
+      >
+        {children}
+      </Link>
+    );
+  }
   return (
     <Comp
-      href="#"
       className={clsx(
         bg,
         color,

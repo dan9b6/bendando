@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 
 export default function Contact() {
   return (
-    <Bounded className="bg-indigo-700 relative overflow-hidden">
+    <Bounded className="relative overflow-hidden">
       <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
         <motion.div
           className="max-w-xl lg:max-w-lg"
@@ -79,13 +79,7 @@ export default function Contact() {
             />
           </div>
           <div className="mt-6 flex max-w-md gap-x-4">
-            <Button
-              color="text-indigo-600"
-              bg="bg-white"
-              hoverBg="hover:bg-gray-100"
-            >
-              Submit
-            </Button>
+            <Button>Submit</Button>
           </div>
         </motion.div>
         <motion.dl
@@ -93,7 +87,7 @@ export default function Contact() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.25, staggerChildren: 0.25 }}
+          transition={{ delay: 0.15, staggerChildren: 0.25 }}
         >
           <motion.div
             className="flex flex-col items-start"
@@ -119,7 +113,7 @@ export default function Contact() {
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.35 }}
+            transition={{ delay: 0.2 }}
           >
             <div className="rounded-md bg-white/5 p-2 ring-1 ring-white/10">
               <HandRaisedIcon
@@ -138,7 +132,7 @@ export default function Contact() {
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.45 }}
+            transition={{ delay: 0.25 }}
           >
             <div className="rounded-md bg-white/5 p-2 ring-1 ring-white/10">
               <CalendarDaysIcon
@@ -157,7 +151,7 @@ export default function Contact() {
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.55 }}
+            transition={{ delay: 0.3 }}
           >
             <div className="rounded-md bg-white/5 p-2 ring-1 ring-white/10">
               <HandRaisedIcon

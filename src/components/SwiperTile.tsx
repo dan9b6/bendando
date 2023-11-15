@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import clsx from "clsx";
 type SwiperTileProps = {
   data: {
@@ -16,7 +17,7 @@ type SwiperTileProps = {
 
 const SwiperTile = ({ data, addClass, ...restProps }: SwiperTileProps) => {
   return (
-    <a
+    <Link
       href={data.href}
       className={clsx(
         "relative h-[300px] min-w-[80vw] sm:min-w-[50vw] md:min-w-[33vw] max-w-[600px] overflow-hidden rounded-md transition-all hover:scale-95 flex flex-col justify-end",
@@ -35,7 +36,7 @@ const SwiperTile = ({ data, addClass, ...restProps }: SwiperTileProps) => {
         <h3 className="font-semibold text-indigo-800">{data.title}</h3>
         <h4 className="text-sm ">{data.subtitle}</h4>
       </div>
-    </a>
+    </Link>
   );
 };
 

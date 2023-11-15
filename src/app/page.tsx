@@ -109,12 +109,12 @@ const slides = [
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col">
+    <>
       <Hero />
       <Swiper data={slides} />
       <Feature />
       <ServiceCards />
       <Contact />
-    </main>
+    </>
   );
 }

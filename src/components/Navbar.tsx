@@ -1,6 +1,6 @@
 "use client";
 
-import { Fragment, useState } from "react";
+import { Fragment, useState, useEffect, forwardRef } from "react";
 import { Dialog, Disclosure, Popover, Transition } from "@headlessui/react";
 import {
   Bars3Icon,
@@ -12,6 +12,9 @@ import {
 } from "@heroicons/react/24/outline";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import Image from "next/image";
+import Link from "next/link";
+
+import { useRouter, usePathname } from "next/navigation";
 
 import clsx from "clsx";
 import { motion } from "framer-motion";
@@ -20,111 +23,112 @@ const services = [
   {
     name: "Website Development",
     description: "",
-    href: "service/web-development",
+    href: "/service/web-development",
     icon: ChartPieIcon,
   },
   {
     name: "App Development",
     description: "",
-    href: "service/app-development",
+    href: "/service/app-development",
     icon: CursorArrowRaysIcon,
   },
   {
     name: "Website Design",
     description: "",
-    href: "service/website-design",
+    href: "/service/website-design",
     icon: FingerPrintIcon,
   },
   {
     name: "SEO",
     description: "",
-    href: "service/seo",
+    href: "/service/seo",
     icon: SquaresPlusIcon,
   },
   {
     name: "E-Commerce",
     description: "",
-    href: "service/e-commerce",
+    href: "/service/e-commerce",
     icon: SquaresPlusIcon,
   },
   {
     name: "Digital Marketing",
     description: "",
-    href: "service/digital-marketing",
+    href: "/service/digital-marketing",
     icon: SquaresPlusIcon,
   },
   {
     name: "Data Collection",
     description: "",
-    href: "service/data-collection",
+    href: "/service/data-collection",
     icon: SquaresPlusIcon,
   },
 ];
+
 const projects = [
   {
     name: "Tenants Hub",
     description: "Property Management Software",
-    href: "project/tenants-hub",
+    href: "/project/tenants-hub",
     icon: ChartPieIcon,
   },
   {
     name: "Win A Flat",
     description: "",
-    href: "project/win-a-flat",
+    href: "/project/win-a-flat",
     icon: CursorArrowRaysIcon,
   },
   {
     name: "Green Acre",
     description: "",
-    href: "project/green-acre",
+    href: "/project/green-acre",
     icon: FingerPrintIcon,
   },
   {
     name: "Malcolm Wall",
     description: "",
-    href: "project/malcolm-wall",
+    href: "/project/malcolm-wall",
     icon: SquaresPlusIcon,
   },
   {
     name: "Clara Monroy",
     description: "",
-    href: "project/clara-monroy",
+    href: "/project/clara-monroy",
     icon: SquaresPlusIcon,
   },
   {
     name: "Mexican Mama",
     description: "",
-    href: "project/mexican-mama",
+    href: "/project/mexican-mama",
     icon: SquaresPlusIcon,
   },
   {
     name: "Hurn Recycling",
     description: "",
-    href: "project/hurn-recycling",
+    href: "/project/hurn-recycling",
     icon: SquaresPlusIcon,
   },
   {
     name: "Victory Dentures",
     description: "",
-    href: "project/victory-dentures",
+    href: "/project/victory-dentures",
     icon: SquaresPlusIcon,
   },
   {
     name: "Vale Info",
     description: "",
-    href: "project/vale-info",
-    icon: SquaresPlusIcon,
-  },
-  {
-    name: "Marisol Corona",
-    description: "",
-    href: "project/marisol-corona",
+    href: "/project/vale-info",
     icon: SquaresPlusIcon,
   },
 ];
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const pathname = usePathname();
+
+  useEffect(() => {
+    console.log(pathname);
+  }, [pathname]);
 
   return (
     <motion.header
@@ -136,9 +140,9 @@ export default function Navbar() {
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
-          <a href="/" className="-m-1.5 p-1.5">
+          <Link href="/" className="-m-1.5 p-1.5">
             <h1 className="text-xl text-white">BENDANDO</h1>
-          </a>
+          </Link>
         </div>
         <div className="flex lg:hidden">
           <button
@@ -171,25 +175,27 @@ export default function Navbar() {
             >
               <Popover.Panel className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5">
                 <div>
-                  {projects.map((item) => (
+                  {projects.map((item, index) => (
                     <div
-                      key={item.name}
+                      key={index}
                       className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
                     >
-                      <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                        <item.icon
+                      <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg text-center bg-gray-50 group-hover:bg-white">
+                        <p
                           className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
                           aria-hidden="true"
-                        />
+                        >
+                          {item.name.split("")[0].charAt(0).toUpperCase()}
+                        </p>
                       </div>
                       <div className="flex-auto">
-                        <a
+                        <Link
                           href={item.href}
                           className="block font-semibold text-gray-900"
                         >
                           {item.name}
                           <span className="absolute inset-0" />
-                        </a>
+                        </Link>
                         <p className="mt-1 text-gray-600 text-xs">
                           {item.description}
                         </p>
@@ -221,25 +227,27 @@ export default function Navbar() {
             >
               <Popover.Panel className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5">
                 <div>
-                  {services.map((item) => (
+                  {services.map((item, index) => (
                     <div
-                      key={item.name}
+                      key={index}
                       className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50"
                     >
-                      <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                        <item.icon
+                      <div className="flex h-11 w-11 flex-none items-center text-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                        <p
                           className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
                           aria-hidden="true"
-                        />
+                        >
+                          {item.name.split("")[0].charAt(0).toUpperCase()}
+                        </p>
                       </div>
                       <div className="flex-auto">
-                        <a
+                        <Link
                           href={item.href}
                           className="block font-semibold text-gray-900"
                         >
                           {item.name}
                           <span className="absolute inset-0" />
-                        </a>
+                        </Link>
                         <p className="mt-1 text-gray-600">{item.description}</p>
                       </div>
                     </div>
@@ -248,16 +256,16 @@ export default function Navbar() {
               </Popover.Panel>
             </Transition>
           </Popover>
-          <a
+          <Link
             href="/contact"
             className="text-sm font-semibold leading-6 text-white focus:outline-none focus:underline focus:underline-offset-4 focus:decoration-indigo-500"
           >
             Contact
-          </a>
+          </Link>
         </Popover.Group>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end  gap-6">
           <div className="flex justify-center space-x-6">
-            <a href="#" className="text-gray-100 hover:text-slate-300">
+            <Link href="#" className="text-gray-100 hover:text-slate-300">
               <span className="sr-only">Facebook</span>
               <svg
                 className="w-6 h-6"
@@ -271,8 +279,8 @@ export default function Navbar() {
                   clipRule="evenodd"
                 ></path>
               </svg>
-            </a>
-            <a href="#" className="text-gray-100 hover:text-slate-300">
+            </Link>
+            <Link href="#" className="text-gray-100 hover:text-slate-300">
               <span className="sr-only">Instagram</span>
               <svg
                 className="w-6 h-6"
@@ -286,8 +294,8 @@ export default function Navbar() {
                   clipRule="evenodd"
                 ></path>
               </svg>
-            </a>
-            <a href="#" className="text-gray-100 hover:text-slate-300">
+            </Link>
+            <Link href="#" className="text-gray-100 hover:text-slate-300">
               <span className="sr-only">Twitter</span>
               <svg
                 className="w-6 h-6"
@@ -297,7 +305,7 @@ export default function Navbar() {
               >
                 <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
               </svg>
-            </a>
+            </Link>
           </div>
         </div>
       </nav>
@@ -310,7 +318,7 @@ export default function Navbar() {
         <div className="fixed inset-0 z-10" />
         <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-4 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
-            <a href="#" className="-m-1.5 p-1.5">
+            <Link href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
               <Image
                 src="/images/logo.png"
@@ -319,7 +327,7 @@ export default function Navbar() {
                 width={180}
                 height={60}
               />
-            </a>
+            </Link>
             <button
               type="button"
               className="-m-2.5 rounded-md p-2.5 text-gray-700"
@@ -350,8 +358,8 @@ export default function Navbar() {
                           <Disclosure.Button
                             key={item.name}
                             as="a"
-                            href={item.href}
                             className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                            href={item.href}
                           >
                             {item.name}
                           </Disclosure.Button>
@@ -378,8 +386,8 @@ export default function Navbar() {
                           <Disclosure.Button
                             key={item.name}
                             as="a"
-                            href={item.href}
                             className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                            href={item.href}
                           >
                             {item.name}
                           </Disclosure.Button>
@@ -388,16 +396,19 @@ export default function Navbar() {
                     </>
                   )}
                 </Disclosure>
-                <a
+                <Link
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   Contact
-                </a>
+                </Link>
               </div>
               <div className="py-6 flex gap-6">
                 <div className="flex justify-center mt-8 space-x-6">
-                  <a href="#" className="text-slate-800 hover:text-slate-300">
+                  <Link
+                    href="#"
+                    className="text-slate-800 hover:text-slate-300"
+                  >
                     <span className="sr-only">Facebook</span>
                     <svg
                       className="w-6 h-6"
@@ -411,8 +422,11 @@ export default function Navbar() {
                         clipRule="evenodd"
                       ></path>
                     </svg>
-                  </a>
-                  <a href="#" className="text-slate-800 hover:text-slate-300">
+                  </Link>
+                  <Link
+                    href="#"
+                    className="text-slate-800 hover:text-slate-300"
+                  >
                     <span className="sr-only">Instagram</span>
                     <svg
                       className="w-6 h-6"
@@ -426,8 +440,11 @@ export default function Navbar() {
                         clipRule="evenodd"
                       ></path>
                     </svg>
-                  </a>
-                  <a href="#" className="text-slate-800 hover:text-slate-300">
+                  </Link>
+                  <Link
+                    href="#"
+                    className="text-slate-800 hover:text-slate-300"
+                  >
                     <span className="sr-only">Twitter</span>
                     <svg
                       className="w-6 h-6"
@@ -437,7 +454,7 @@ export default function Navbar() {
                     >
                       <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
                     </svg>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
