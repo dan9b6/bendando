@@ -35,6 +35,7 @@ const features = [
       "Your input is invaluable throughout the development process. We believe in transparent communication, and our team works closely with you to incorporate your feedback, ensuring the final product exceeds your expectations.",
   },
 ];
+const img = { src: "/images/screenshot.png", alt: "/images/screenshot.png" };
 
 const page = () => {
   return (
