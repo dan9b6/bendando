@@ -15,7 +15,7 @@ type ButtonProps = {
 export default function Button({
   as: Comp = "button",
   bg = "bg-indigo-600",
-  hoverBg = "bg-indigo-500",
+  hoverBg = "hover:bg-indigo-500",
   color = "text-white",
   href,
   children,

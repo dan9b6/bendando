@@ -85,10 +85,10 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="border-t border-t-gray-400 mt-8 flex flex-col-reverse items-end md:flex md:flex-row md:justify-between gap-4">
-        <div className="flex md:flex-col gap-2">
+      <div className="border-t border-t-gray-400 mt-8 flex flex-col-reverse items-start md:items-end md:flex md:flex-row md:justify-between gap-4 pt-4 md:pt-8">
+        <div className="flex flex-col gap-2">
           <a
-            className="mt-4 text-xs text-gray-100 flex gap-1"
+            className="text-xs text-gray-100 flex gap-1"
             href="tel:02085438117"
           >
             <PhoneIcon className="h-4" /> 020 8543 8117
@@ -97,8 +97,8 @@ export default function Footer() {
             © 2021 Bendando, Inc. All rights reserved.
           </p>
         </div>
-        <div className="flex md:flex-col gap-2 md:text-end">
-          <p className="mt-4 text-xs text-gray-100 flex gap-1">
+        <div className="flex flex-col gap-2 md:text-end md:items-end">
+          <p className="text-xs text-gray-100 flex gap-1">
             <BookOpenIcon className="h-4" /> Unit 6 Princess Mews Horace, Road
             Kingston-upon-Thames, Surrey, KT1 2SZ
           </p>

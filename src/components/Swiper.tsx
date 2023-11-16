@@ -25,10 +25,7 @@ const Swiper = ({ data, ...restProps }: SwiperProps) => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.5 }}
     >
-      <div className="flex gap-4 overflow-x-auto w-full">
-        {/* {data.map((el, index) => (
-          <SwiperTile key={index} data={el} />
-        ))} */}
+      <div className="flex gap-4 overflow-x-auto w-full swiper">
         {data.map((el, index) => {
           if (index === 0) {
             return <SwiperTile key={index} data={el} addClass="ms-4" />;

@@ -11,10 +11,7 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
-import Image from "next/image";
 import Link from "next/link";
-
-import { useRouter, usePathname } from "next/navigation";
 
 import clsx from "clsx";
 import { motion } from "framer-motion";
@@ -24,43 +21,41 @@ const services = [
     name: "Website Development",
     description: "",
     href: "/service/web-development",
-    icon: ChartPieIcon,
   },
   {
     name: "App Development",
     description: "",
     href: "/service/app-development",
-    icon: CursorArrowRaysIcon,
   },
   {
     name: "Website Design",
     description: "",
     href: "/service/website-design",
-    icon: FingerPrintIcon,
   },
   {
     name: "SEO",
     description: "",
     href: "/service/seo",
-    icon: SquaresPlusIcon,
   },
   {
     name: "E-Commerce",
     description: "",
     href: "/service/e-commerce",
-    icon: SquaresPlusIcon,
   },
   {
     name: "Digital Marketing",
     description: "",
     href: "/service/digital-marketing",
-    icon: SquaresPlusIcon,
+  },
+  {
+    name: "CRM Management",
+    description: "",
+    href: "/service/crm-management",
   },
   {
     name: "Data Collection",
     description: "",
     href: "/service/data-collection",
-    icon: SquaresPlusIcon,
   },
 ];
 
@@ -124,12 +119,6 @@ const projects = [
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const pathname = usePathname();
-
-  useEffect(() => {
-    console.log(pathname);
-  }, [pathname]);
-
   return (
     <motion.header
       initial={{ opacity: 0, y: -100 }}
@@ -189,13 +178,14 @@ export default function Navbar() {
                         </p>
                       </div>
                       <div className="flex-auto">
-                        <Link
+                        <Popover.Button
+                          as={Link}
                           href={item.href}
                           className="block font-semibold text-gray-900"
                         >
                           {item.name}
                           <span className="absolute inset-0" />
-                        </Link>
+                        </Popover.Button>
                         <p className="mt-1 text-gray-600 text-xs">
                           {item.description}
                         </p>
@@ -241,13 +231,14 @@ export default function Navbar() {
                         </p>
                       </div>
                       <div className="flex-auto">
-                        <Link
+                        <Popover.Button
+                          as={Link}
                           href={item.href}
                           className="block font-semibold text-gray-900"
                         >
                           {item.name}
                           <span className="absolute inset-0" />
-                        </Link>
+                        </Popover.Button>
                         <p className="mt-1 text-gray-600">{item.description}</p>
                       </div>
                     </div>
@@ -311,7 +302,7 @@ export default function Navbar() {
       </nav>
       <Dialog
         as="div"
-        className="lg:hidden"
+        className="lg:hidden transition-all"
         open={mobileMenuOpen}
         onClose={setMobileMenuOpen}
       >
@@ -319,14 +310,7 @@ export default function Navbar() {
         <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-4 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
             <Link href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">Your Company</span>
-              <Image
-                src="/images/logo.png"
-                alt="Logo"
-                className="h-8 md:h-12 w-auto"
-                width={180}
-                height={60}
-              />
+              <span className="text-xl uppercase">Bendando</span>
             </Link>
             <button
               type="button"
@@ -357,9 +341,10 @@ export default function Navbar() {
                         {[...projects].map((item) => (
                           <Disclosure.Button
                             key={item.name}
-                            as="a"
+                            as={Link}
                             className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                             href={item.href}
+                            onClick={() => setMobileMenuOpen(false)}
                           >
                             {item.name}
                           </Disclosure.Button>
@@ -385,9 +370,10 @@ export default function Navbar() {
                         {[...services].map((item) => (
                           <Disclosure.Button
                             key={item.name}
-                            as="a"
+                            as={Link}
                             className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                             href={item.href}
+                            onClick={() => setMobileMenuOpen(false)}
                           >
                             {item.name}
                           </Disclosure.Button>

@@ -24,7 +24,7 @@ export default function RootLayout({
       <body
         className={clsx(
           inter.className,
-          "bg-gradient-to-b from-slate-950 to-indigo-900 flex flex-col"
+          "bg-gradient-to-b from-slate-950 to-indigo-900 flex flex-col min-h-screen"
         )}
       >
         <Layout>{children}</Layout>

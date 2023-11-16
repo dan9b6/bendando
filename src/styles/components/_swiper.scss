@@ -1,0 +1,7 @@
+.swiper {
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    -ms-overflow-style: none;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+}
