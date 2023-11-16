@@ -39,7 +39,7 @@ const page = () => {
   const img = { src: "/images/screenshot.png", alt: "/images/screenshot.png" };
   return (
     <>
-      <Hero title="SEO (Search Engine Optimization)" img={img}>
+      <Hero title="SEO (Search Engine Optimization)">
         At Bendando, we bring your digital vision to life! As a leading web
         development agency, we understand the crucial role that a well-crafted
         website plays in today{"'"}s competitive business landscape.
