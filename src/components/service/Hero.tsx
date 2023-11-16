@@ -3,16 +3,16 @@ import Bounded from "../Bounded";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-type HeroType = {
-  title: string;
-  children: React.ReactNode;
-  img: {
+type HeroProps = {
+  title?: string;
+  children?: React.ReactNode;
+  img?: {
     src: string;
     alt: string;
   };
 };
 
-const Hero = ({ title, img, children }: HeroType) => {
+const Hero = ({ title, img, children }: HeroProps) => {
   return (
     <Bounded>
       <motion.div
@@ -37,15 +37,18 @@ const Hero = ({ title, img, children }: HeroType) => {
         viewport={{ once: true }}
         transition={{ delay: 0.15 }}
       >
-        <Image
-          src={img.src}
-          alt={img.alt}
-          className="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0 self-center"
-          width={0}
-          height={0}
-          sizes="100vw"
-          style={{ width: "100%", height: "auto" }}
-        />
+        {img && (
+          <Image
+            src={img.src}
+            alt={img.alt}
+            className="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0 self-center"
+            width={0}
+            height={0}
+            sizes="100vw"
+            style={{ width: "100%", height: "auto" }}
+            priority
+          />
+        )}
       </motion.div>
     </Bounded>
   );

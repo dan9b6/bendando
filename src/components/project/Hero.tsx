@@ -61,6 +61,7 @@ export default function Hero({
               className="w-[48rem] max-w-none rounded-xl sm:w-[57rem] md:-ml-4 lg:-ml-0 self-center"
               width={2432}
               height={1442}
+              priority
             />
           </motion.div>
         </div>
