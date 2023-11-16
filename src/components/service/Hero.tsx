@@ -3,16 +3,14 @@ import Bounded from "../Bounded";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
+const img = { src: "/images/screenshot.png", alt: "/images/screenshot.png" };
+
 type HeroProps = {
   title?: string;
   children?: React.ReactNode;
-  img?: {
-    src: string;
-    alt: string;
-  };
 };
 
-const Hero = ({ title, img, children }: HeroProps) => {
+const Hero = ({ title, children }: HeroProps) => {
   return (
     <Bounded>
       <motion.div

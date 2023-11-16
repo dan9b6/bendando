@@ -40,7 +40,7 @@ const page = () => {
   ];
   return (
     <>
-      <Hero title="App Development" img={img}>
+      <Hero title="App Development">
         At Bendando, we bring your digital vision to life! As a leading web
         development agency, we understand the crucial role that a well-crafted
         website plays in today{"'"}s competitive business landscape.
