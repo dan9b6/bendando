@@ -82,14 +82,14 @@ export default function Contact() {
             <Button>Submit</Button>
           </div>
         </motion.div>
-        <motion.dl
+        <motion.ul
           className="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:pt-2"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.15, staggerChildren: 0.25 }}
         >
-          <motion.div
+          <motion.li
             className="flex flex-col items-start"
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -107,8 +107,8 @@ export default function Contact() {
               Non laboris consequat cupidatat laborum magna. Eiusmod non irure
               cupidatat duis commodo amet.
             </dd>
-          </motion.div>
-          <motion.div
+          </motion.li>
+          <motion.li
             className="flex flex-col items-start"
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -126,8 +126,8 @@ export default function Contact() {
               Officia excepteur ullamco ut sint duis proident non adipisicing.
               Voluptate incididunt anim.
             </dd>
-          </motion.div>
-          <motion.div
+          </motion.li>
+          <motion.li
             className="flex flex-col items-start"
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -145,8 +145,8 @@ export default function Contact() {
               Non laboris consequat cupidatat laborum magna. Eiusmod non irure
               cupidatat duis commodo amet.
             </dd>
-          </motion.div>
-          <motion.div
+          </motion.li>
+          <motion.li
             className="flex flex-col items-start"
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -164,8 +164,8 @@ export default function Contact() {
               Officia excepteur ullamco ut sint duis proident non adipisicing.
               Voluptate incididunt anim.
             </dd>
-          </motion.div>
-        </motion.dl>
+          </motion.li>
+        </motion.ul>
       </div>
       <div
         className="absolute left-1/2 top-0 -z-10 -translate-x-1/2 blur-3xl xl:-top-6"

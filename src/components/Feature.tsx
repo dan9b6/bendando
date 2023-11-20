@@ -54,20 +54,20 @@ export default function Example() {
               partner in navigating the digital age. We are a collective of
               passionate individuals with a shared commitment to excellence.
             </p>
-            <dl className="mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-100 lg:max-w-none">
+            <ul className="mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-100 lg:max-w-none">
               {features.map((feature) => (
-                <div key={feature.name} className="relative pl-9">
-                  <dt className="inline font-semibold text-indigo-300">
+                <li key={feature.name} className="relative pl-9">
+                  <span className="inline font-semibold text-indigo-300">
                     <feature.icon
                       className="absolute left-1 top-1 h-5 w-5 text-indigo-300"
                       aria-hidden="true"
                     />
                     {feature.name}
-                  </dt>{" "}
-                  <dd className="inline">{feature.description}</dd>
-                </div>
+                  </span>{" "}
+                  <div className="inline">{feature.description}</div>
+                </li>
               ))}
-            </dl>
+            </ul>
           </motion.div>
           <motion.div
             className="flex items-center"

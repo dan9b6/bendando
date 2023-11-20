@@ -29,9 +29,9 @@ export default function Features({ features, children }: FeaturesProps) {
         <p className="mt-6 text-lg leading-8 text-gray-600">{children}</p>
       </motion.div>
       <div className="mx-auto w-full">
-        <dl className="grid my-12 w-full grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none md:grid-cols-2 lg:grid-cols-3 lg:gap-y-16">
+        <ul className="grid my-12 w-full grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none md:grid-cols-2 lg:grid-cols-3 lg:gap-y-16">
           {features.map((feature) => (
-            <motion.div
+            <motion.li
               key={feature.name}
               className="relative pl-16"
               initial={{ opacity: 0 }}
@@ -39,7 +39,7 @@ export default function Features({ features, children }: FeaturesProps) {
               viewport={{ once: true }}
               transition={{ delay: 0.15 }}
             >
-              <dt className="text-base font-semibold leading-7 text-gray-900">
+              <div className="text-base font-semibold leading-7 text-gray-900">
                 <motion.div
                   className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600"
                   viewport={{ once: true }}
@@ -58,13 +58,13 @@ export default function Features({ features, children }: FeaturesProps) {
                   />
                 </motion.div>
                 {feature.name}
-              </dt>
-              <dd className="mt-2 text-base leading-7 text-gray-600">
+              </div>
+              <div className="mt-2 text-base leading-7 text-gray-600">
                 {feature.description}
-              </dd>
-            </motion.div>
+              </div>
+            </motion.li>
           ))}
-        </dl>
+        </ul>
       </div>
     </Bounded>
   );
