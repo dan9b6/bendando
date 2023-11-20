@@ -102,11 +102,13 @@ export default function Contact() {
                 aria-hidden="true"
               />
             </div>
-            <dt className="mt-4 font-semibold text-white">Weekly articles</dt>
-            <dd className="mt-2 leading-7 text-gray-100">
+            <span className="mt-4 font-semibold text-white">
+              Weekly articles
+            </span>
+            <div className="mt-2 leading-7 text-gray-100">
               Non laboris consequat cupidatat laborum magna. Eiusmod non irure
               cupidatat duis commodo amet.
-            </dd>
+            </div>
           </motion.li>
           <motion.li
             className="flex flex-col items-start"
@@ -121,11 +123,11 @@ export default function Contact() {
                 aria-hidden="true"
               />
             </div>
-            <dt className="mt-4 font-semibold text-white">No spam</dt>
-            <dd className="mt-2 leading-7 text-gray-100">
+            <span className="mt-4 font-semibold text-white">No spam</span>
+            <div className="mt-2 leading-7 text-gray-100">
               Officia excepteur ullamco ut sint duis proident non adipisicing.
               Voluptate incididunt anim.
-            </dd>
+            </div>
           </motion.li>
           <motion.li
             className="flex flex-col items-start"
@@ -140,11 +142,13 @@ export default function Contact() {
                 aria-hidden="true"
               />
             </div>
-            <dt className="mt-4 font-semibold text-white">Weekly articles</dt>
-            <dd className="mt-2 leading-7 text-gray-100">
+            <span className="mt-4 font-semibold text-white">
+              Weekly articles
+            </span>
+            <div className="mt-2 leading-7 text-gray-100">
               Non laboris consequat cupidatat laborum magna. Eiusmod non irure
               cupidatat duis commodo amet.
-            </dd>
+            </div>
           </motion.li>
           <motion.li
             className="flex flex-col items-start"
@@ -159,11 +163,11 @@ export default function Contact() {
                 aria-hidden="true"
               />
             </div>
-            <dt className="mt-4 font-semibold text-white">No spam</dt>
-            <dd className="mt-2 leading-7 text-gray-100">
+            <span className="mt-4 font-semibold text-white">No spam</span>
+            <div className="mt-2 leading-7 text-gray-100">
               Officia excepteur ullamco ut sint duis proident non adipisicing.
               Voluptate incididunt anim.
-            </dd>
+            </div>
           </motion.li>
         </motion.ul>
       </div>
