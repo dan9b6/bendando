@@ -16,7 +16,7 @@ export default function FeatureCard({
   return (
     <motion.div
       className={clsx(
-        "p-6 lg:p-8 rounded-lg bg-indigo-100 border-white border-solid border-2 flex flex-col justify-between transition-all hover:bg-indigo-200"
+        "p-6 lg:p-8 rounded-lg bg-indigo-100 border-white border-solid border-2 flex flex-col justify-between hover:bg-indigo-200"
       )}
       initial={{ opacity: 0, y: 25 }}
       whileInView={{ opacity: 1, y: 0 }}
