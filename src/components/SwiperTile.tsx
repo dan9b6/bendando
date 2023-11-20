@@ -33,8 +33,8 @@ const SwiperTile = ({ data, addClass, ...restProps }: SwiperTileProps) => {
         height={400}
       />
       <div className="ms-2 mb-2 py-2 ps-3 pe-6 rounded-md bg-white w-max shadow-sm">
-        <h3 className="font-semibold text-indigo-800">{data.title}</h3>
-        <h4 className="text-sm ">{data.subtitle}</h4>
+        <h2 className="font-semibold text-indigo-800">{data.title}</h2>
+        <h3 className="text-sm ">{data.subtitle}</h3>
       </div>
     </Link>
   );
